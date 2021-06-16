@@ -1,0 +1,25 @@
+create table publisher(
+   ID INTEGER PRIMARY KEY AUTOINCREMENT,
+   NAME TEXT NOT NULL,
+   COUNTRY TEXT
+);
+
+create table books(
+   ID INTEGER PRIMARY KEY AUTOINCREMENT,
+   TITLE TEXT NOT NULL,
+   PUBLISHER INT NOT NULL,
+   FOREIGN KEY(PUBLISHER) REFERENCES publisher(ID)
+   );
+
+
+CREATE TABLE subjects(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT
+);
+
+CREATE TABLE books_subjects(
+    book INTEGER,
+    subject INTEGER,
+    FOREIGN KEY(book) REFERENCES books(id),
+    FOREIGN KEY(subject) REFERENCES subjects(id)
+);
